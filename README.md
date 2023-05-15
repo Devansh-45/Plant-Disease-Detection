@@ -1,212 +1,75 @@
-# Potato Disease Classification
+# Plant Disease Detection
 
-## Setup for Python:
+🌱🔍🍅
 
-1. Install Python ([Setup instructions](https://wiki.python.org/moin/BeginnersGuide))
+![Germany, Stuttgart, Magical orange sunset sky above ripe grain field nature landscape in summer Germany, Stuttgart, Magical orange sunset sky above ripe grain field nature landscape in summer farm stock pictures, royalty-free photos & images](https://media.istockphoto.com/id/1280715716/photo/germany-stuttgart-magical-orange-sunset-sky-above-ripe-grain-field-nature-landscape-in-summer.jpg?s=612x612&w=0&k=20&c=TukToGq-LkmpxvEXEomC3d11prf_hDRSwA7pYsLYG50=)
 
-2. Install Python packages
+## Introduction
+This project focuses on detecting diseases in potato, pepper, and tomato plants using computer vision techniques. The goal is to develop a model that can accurately identify and classify plant diseases based on images.
 
-```
-pip3 install -r training/requirements.txt
-pip3 install -r api/requirements.txt
-```
+## Dataset
+The project utilizes the Plant Village dataset available on Kaggle. You can find the dataset [here](https://www.kaggle.com/datasets/arjuntejaswi/plant-village). It contains a collection of images depicting healthy plants as well as plants affected by various diseases.
 
-3. Install Tensorflow Serving ([Setup instructions](https://www.tensorflow.org/tfx/serving/setup))
+## Dependencies
+The following libraries and tools were used in this project:
+- NumPy 🧮
+- Pandas 🐼
+- Seaborn 🌊
+- Matplotlib 📊
+- Kaggle API 📁
+- Convolutional Neural Networks (CNN) 🧠
+- Flask 🌐
+- PyTorch 🔥
+- FastAPI 🚀
+- Postman 📮
 
-## Setup for ReactJS
+## Methodology
+1. Data Preparation: The dataset was downloaded from Kaggle using the Kaggle API and preprocessed to create training and testing sets. Data augmentation techniques, such as random rotations and flips, were applied to increase the robustness of the model.
 
-1. Install Nodejs ([Setup instructions](https://nodejs.org/en/download/package-manager/))
-2. Install NPM ([Setup instructions](https://www.npmjs.com/get-npm))
-3. Install dependencies
+2. Model Training: A Convolutional Neural Network (CNN) architecture was employed to train a plant disease detection model. Transfer learning using pre-trained models, such as ResNet or VGG, was also explored to leverage their learned features.
 
-```bash
-cd frontend
-npm install --from-lock-json
-npm audit fix
-```
+3. Model Evaluation: The performance of the model was evaluated using appropriate evaluation metrics such as accuracy, precision, recall, and F1 score. The model's ability to correctly classify plant diseases was assessed on the testing set.
 
-4. Copy `.env.example` as `.env`.
+4. Deployment: The model was deployed as a web application using FastAPI. Users can submit plant images through the web interface or using tools like Postman to receive predictions on whether the plant is healthy or affected by a disease.
 
-5. Change API url in `.env`.
+## Usage
+1. Clone the repository:
 
-## Setup for React-Native app
+2. Clone the repository:
+   ```shell
+   git clone https://github.com/Devansh-45/Plant-Disease-Detection
+3.  Install the required dependencies:
+    
+    `pip install -r requirements.txt`
 
-1. Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.  
+4. Download the Plant Village dataset from Kaggle and place it in the project directory.
 
-2. Install dependencies
+5. Train the model:
+	```shell
+	main.py
 
-```bash
-cd mobile-app
-yarn install
-```
+This will train the plant disease detection model on the dataset.
 
-  - 2.1 Only for mac users
-```bash
-cd ios && pod install && cd ../
-```
+5. Run the FastAPI web application:
+	```shell
+	uvicorn main:app --reload
 
-3. Copy `.env.example` as `.env`.
+Access the web application at `http://localhost:3000` in your web browser or use tools like Postman to interact with the API.
 
-4. Change API url in `.env`.
+Feel free to customize the project or modify the code to suit your specific needs. If you encounter any issues or have questions, please don't hesitate to reach out for support.
 
-## Training the Model
+## Results
+The Plant Disease Detection model aims to accurately identify and classify diseases in potato, pepper, and tomato plants. By leveraging computer vision techniques, the model assists in early disease detection, allowing for timely intervention and better plant health management.
 
-1. Download the data from [kaggle](https://www.kaggle.com/arjuntejaswi/plant-village).
-2. Only keep folders related to Potatoes.
-3. Run Jupyter Notebook in Browser.
+![](https://lh3.googleusercontent.com/pBtPUQyMNDYjQuTTyP1HS4cRDG9v1Rpi8MXUYRUUMbLRmJARNN6cnYbDWPLKaNbOmSrOY6iCdfCruEPoX76BW6At1knFYc1hJjUmbG9oQ5H-ycL88ko4mo-AWlHH59AnQqrRMMqOv8EyWdGcNBg9GG0Cb-FIR_KgPbds452bZte4KaQ9Er3zfkvudcvCpSC-cKlL5JkoZ0VVogEDXNlTA0qXFKGyWC2ghO6EUvOctzsqjA8--GBLglIFjIrzbxyfCp0t48x5urWCqf4-w3s7DYmITrzQpwjF1SaMUcxlR4lsSMVW1W7oSMvpPRycG7KH6JuS_ngIlihrFSrWmMydoMDCDxCvqKVQXBXFnviY1dd0XPtg8n8aBv5EDzi-1jrJCL4igTMVC-8t8ZYGOr01IxgXeqynDFxKXctD_5x_SVz79o68_4yaSU-JpCEVOw3uBlE0rr_vvT_csCz4eppJYnEiCln6QInWwG043uDMfSxvwP5JrYhLJSZkrjAiWTI2jDBBvctRzfbDujfuQErIFsHrfZ9oTriUXaAMLAgOGaaUMm5ZBDyrztTf-jK7mngmBisKaLi1eSDM338IwFV5ccbB94aI_yIqcVV07umaNRTK4DLC4XtQklhyVTsS3zzrpnTIUC7kTFS_ueD_UKOZG1p-JvXLqn8FtqJ2QJAuo2QSsAstrxmSkgNXHlhj4Bz-mVLe0i7K60zuUmERKHypXAUt1KDYf-zEhZGjiIIY1aw4vgJpNivHE_Tu0mf75gPCeHRXx8QlcShg-XnxxU__rh_WAjy2d20aGJGYNCnsAW6aPVkIislAa3M51yEFNLSKULCgGgVt11quKBY5w7TyWM0zWWbWakBhfkPjFePmGqSXbH8dahscZUaojGIcc99Nj86UsNzX-IK_mMOezdKfPm82ILN5a8XBh1-fknDX18eLaIocB2Z1hUaU2RqWgUy-TrLQ9zrl-KkxknLeXg=w1330-h672-s-no?authuser=0)
+## Future Enhancements
+Here are some ideas to further enhance the project:
 
-```bash
-jupyter notebook
-```
+- Implement an image segmentation approach to localize and classify individual lesions or affected areas within a plant.
+- Incorporate additional plant species and diseases into the dataset to improve the model's versatility.
+- Deploy the web application on a cloud platform to make it accessible online.
 
-4. Open `training/potato-disease-training.ipynb` in Jupyter Notebook.
-5. In cell #2, update the path to dataset.
-6. Run all the Cells one by one.
-7. Copy the model generated and save it with the version number in the `models` folder.
+## Contributors
+- [Devansh Desai](https://github.com/Devansh-45)
 
-## Running the API
-
-### Using FastAPI
-
-1. Get inside `api` folder
-
-```bash
-cd api
-```
-
-2. Run the FastAPI Server using uvicorn
-
-```bash
-uvicorn main:app --reload --host 0.0.0.0
-```
-
-3. Your API is now running at `0.0.0.0:8000`
-
-### Using FastAPI & TF Serve
-
-1. Get inside `api` folder
-
-```bash
-cd api
-```
-
-2. Copy the `models.config.example` as `models.config` and update the paths in file.
-3. Run the TF Serve (Update config file path below)
-
-```bash
-docker run -t --rm -p 8501:8501 -v C:/Code/potato-disease-classification:/potato-disease-classification tensorflow/serving --rest_api_port=8501 --model_config_file=/potato-disease-classification/models.config
-```
-
-4. Run the FastAPI Server using uvicorn
-   For this you can directly run it from your main.py or main-tf-serving.py using pycharm run option (as shown in the video tutorial)
-   OR you can run it from command prompt as shown below,
-
-```bash
-uvicorn main-tf-serving:app --reload --host 0.0.0.0
-```
-
-5. Your API is now running at `0.0.0.0:8000`
-
-## Running the Frontend
-
-1. Get inside `api` folder
-
-```bash
-cd frontend
-```
-
-2. Copy the `.env.example` as `.env` and update `REACT_APP_API_URL` to API URL if needed.
-3. Run the frontend
-
-```bash
-npm run start
-```
-
-## Running the app
-
-1. Get inside `mobile-app` folder
-
-```bash
-cd mobile-app
-```
-
-2. Copy the `.env.example` as `.env` and update `URL` to API URL if needed.
-
-3. Run the app (android/iOS)
-
-```bash
-npm run android
-```
-
-or
-
-```bash
-npm run ios
-```
-
-4. Creating public ([signed APK](https://reactnative.dev/docs/signed-apk-android))
-
-
-## Creating the TF Lite Model
-
-1. Run Jupyter Notebook in Browser.
-
-```bash
-jupyter notebook
-```
-
-2. Open `training/tf-lite-converter.ipynb` in Jupyter Notebook.
-3. In cell #2, update the path to dataset.
-4. Run all the Cells one by one.
-5. Model would be saved in `tf-lite-models` folder.
-
-## Deploying the TF Lite on GCP
-
-1. Create a [GCP account](https://console.cloud.google.com/freetrial/signup/tos?_ga=2.25841725.1677013893.1627213171-706917375.1627193643&_gac=1.124122488.1627227734.Cj0KCQjwl_SHBhCQARIsAFIFRVVUZFV7wUg-DVxSlsnlIwSGWxib-owC-s9k6rjWVaF4y7kp1aUv5eQaAj2kEALw_wcB).
-2. Create a [Project on GCP](https://cloud.google.com/appengine/docs/standard/nodejs/building-app/creating-project) (Keep note of the project id).
-3. Create a [GCP bucket](https://console.cloud.google.com/storage/browser/).
-4. Upload the potatoes.h5 model in the bucket in the path `models/potatos.h5`.
-5. Install Google Cloud SDK ([Setup instructions](https://cloud.google.com/sdk/docs/quickstarts)).
-6. Authenticate with Google Cloud SDK.
-
-```bash
-gcloud auth login
-```
-
-7. Run the deployment script.
-
-```bash
-cd gcp
-gcloud functions deploy predict_lite --runtime python38 --trigger-http --memory 512 --project project_id
-```
-
-8. Your model is now deployed.
-9. Use Postman to test the GCF using the [Trigger URL](https://cloud.google.com/functions/docs/calling/http).
-
-Inspiration: https://cloud.google.com/blog/products/ai-machine-learning/how-to-serve-deep-learning-models-using-tensorflow-2-0-with-cloud-functions
-
-## Deploying the TF Model (.h5) on GCP
-
-1. Create a [GCP account](https://console.cloud.google.com/freetrial/signup/tos?_ga=2.25841725.1677013893.1627213171-706917375.1627193643&_gac=1.124122488.1627227734.Cj0KCQjwl_SHBhCQARIsAFIFRVVUZFV7wUg-DVxSlsnlIwSGWxib-owC-s9k6rjWVaF4y7kp1aUv5eQaAj2kEALw_wcB).
-2. Create a [Project on GCP](https://cloud.google.com/appengine/docs/standard/nodejs/building-app/creating-project) (Keep note of the project id).
-3. Create a [GCP bucket](https://console.cloud.google.com/storage/browser/).
-4. Upload the tf .h5 model generate in the bucket in the path `models/potato-model.h5`.
-5. Install Google Cloud SDK ([Setup instructions](https://cloud.google.com/sdk/docs/quickstarts)).
-6. Authenticate with Google Cloud SDK.
-
-```bash
-gcloud auth login
-```
-
-7. Run the deployment script.
-
-```bash
-cd gcp
-gcloud functions deploy predict --runtime python38 --trigger-http --memory 512 --project project_id
-```
-
-8. Your model is now deployed.
-9. Use Postman to test the GCF using the [Trigger URL](https://cloud.google.com/functions/docs/calling/http).
-
-Inspiration: https://cloud.google.com/blog/products/ai-machine-learning/how-to-serve-deep-learning-models-using-tensorflow-2-0-with-cloud-functions
-
+Contributions to this project are welcome. Feel free to open
